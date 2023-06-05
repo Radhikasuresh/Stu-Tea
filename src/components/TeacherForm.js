@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import * as yup from "yup";
 import { useFormik } from "formik";
+import { APIS } from "../api/api";
 import { API } from "../api/api";
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +25,6 @@ const Form = ({ onSubmit, type, teacherDetails }) => {
       initialValues: {
         name: teacherDetails.name,
         email: teacherDetails.email,
-        image: teacherDetails.image,
         subject:teacherDetails.subject,
        
       },
@@ -40,7 +40,7 @@ const Form = ({ onSubmit, type, teacherDetails }) => {
 
       try {
         const resposne = await fetch(
-          `${API}`,
+          `${APIS}`,
           {
             method: "POST",
             body: JSON.stringify(newUser),
@@ -108,19 +108,7 @@ const Form = ({ onSubmit, type, teacherDetails }) => {
                   name="email"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  error={errors.image && touched.image ? true : false}
-                  helperText={errors.image && touched.image ? errors.image : ""}
-                  onChange={handleChange}
-                  value={values.image}
-                  fullWidth
-                  id="image"
-                  label="Profile Picture"
-                  onBlur={handleBlur}
-                  name="image"
-                />
-              </Grid>
+             
               <Grid item xs={12} sm={4}>
                 <TextField
                   error={errors.subject && touched.subject ? true : false}

@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import { API } from "../api/api";
+import { API,APIS } from "../api/api";
 import TeacherCard from "./TeacherCard ";
 
 const Dashboard = () => {
   const [teacher, setTeacher] = useState([]);
 
   function getTeachers() {
-    fetch(`${API}`, {
+    fetch(`${APIS}`, {
       method: "GET",
     }).then((res) => res.json().then((data) => setTeacher(data)));
   }
@@ -18,7 +18,7 @@ const Dashboard = () => {
   }, []);
 
   function deleteTeacher(id) {
-    fetch(`${API}/${id}`, {
+    fetch(`${APIS}/${id}`, {
       method: "DELETE",
     }).then(() => getTeachers());
   }

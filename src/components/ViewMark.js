@@ -43,12 +43,7 @@ const ViewMark = () => {
       sx={{ maxWidth: 600, maxHeight: 700 }}
     >
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="300"
-          image={student.image}
-          alt={student.name}
-        />
+        
         <CardContent>
           <Typography gutterBottom variant="h3" component="div">
             {student.name}

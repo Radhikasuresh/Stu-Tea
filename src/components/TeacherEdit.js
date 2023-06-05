@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { API } from "../api/api";
+import { API, APIS } from "../api/api";
 import Form from "./TeacherForm";
 
 const TeacherEdit = () => {
@@ -9,7 +9,6 @@ const TeacherEdit = () => {
   const [teacherDetails, setTeacherDetails] = useState({
     name: "",
     email: "",
-    image: "",
      subject:"",
   });
 
@@ -20,14 +19,13 @@ const TeacherEdit = () => {
         setTeacherDetails({
           name: data.name,
           email: data.email,
-          image: data.image,
           subject:data.subject
         })
       );
   }, []);
   const navigate = useNavigate();
   const onEdit = (updated) => {
-    fetch(`${API}/${id}`, {
+    fetch(`${APIS}/${id}`, {
       method: "PUT",
       body: JSON.stringify(updated),
       headers: { "Content-Type": "application/json" },

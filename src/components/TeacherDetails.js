@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API } from "../api/api";
+import { API, APIS } from "../api/api";
 import Form from "./TeacherForm";
 
 
@@ -9,7 +9,6 @@ const TeacherDetails = () => {
   const [teacherDetails, setTeacherDetails] = useState({
     name: "",
     email: "",
-    image: "",
     subject:"",
   });
   
@@ -18,7 +17,7 @@ const TeacherDetails = () => {
 
     try {
       const response = await fetch(
-        `${API}`,
+        `${APIS}`,
         {
           method: "POST",
           body: JSON.stringify(newUser),

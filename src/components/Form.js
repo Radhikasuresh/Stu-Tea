@@ -51,7 +51,6 @@ const Form = ({ onSubmit, type, studentDetails }) => {
       initialValues: {
         name: studentDetails.name,
         email: studentDetails.email,
-        image: studentDetails.image,
         tamil: studentDetails.tamil,
         eng: studentDetails.eng,
         sci: studentDetails.sci,
@@ -122,19 +121,7 @@ const Form = ({ onSubmit, type, studentDetails }) => {
                   name="email"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  error={errors.image && touched.image ? true : false}
-                  helperText={errors.image && touched.image ? errors.image : ""}
-                  onChange={handleChange}
-                  value={values.image}
-                  fullWidth
-                  id="image"
-                  label="Profile Picture"
-                  onBlur={handleBlur}
-                  name="image"
-                />
-              </Grid>
+             
               <Grid item xs={12} sm={4}>
                 <TextField
                   error={errors.tamil && touched.tamil ? true : false}

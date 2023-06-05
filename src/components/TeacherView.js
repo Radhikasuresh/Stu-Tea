@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
 import { API } from "../api/api";
+import { APIS } from "../api/api";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
@@ -15,7 +16,7 @@ const TeacherView = () => {
   const navigate = useNavigate();
   const [teacher, setTeacher] = useState([]);
   useEffect(() => {
-    fetch(`${API}/${id}`)
+    fetch(`${APIS}/${id}`)
       .then((res) => res.json())
       .then((data) => setTeacher(data));
   }, [id]);
@@ -33,12 +34,12 @@ const TeacherView = () => {
       sx={{ maxWidth: 600, maxHeight: 700 }}
     >
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           component="img"
           height="300"
           image={teacher.image}
           alt={teacher.name}
-        />
+        /> */}
         <CardContent>
           <Typography gutterBottom variant="h3" component="div">
             {teacher.name}

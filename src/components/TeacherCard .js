@@ -11,13 +11,7 @@ const TeacherCard = ({ data, id, deleteTeacher }) => {
   const navigate = useNavigate();
   return (
     <Card className="style" variant="outlined" sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt={`${data.name}`}
-        height="140"
-        image={`${data.image}`}
-        subject={`${data.subject}`}
-      />
+   
       <CardContent className="card-clr">
         <Typography gutterBottom variant="h5" component="div">
           {data.name}
